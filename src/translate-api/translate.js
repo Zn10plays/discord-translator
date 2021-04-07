@@ -1,8 +1,6 @@
 const puppeteer = require('puppeteer')
 let browser; let page; const list = []; let ready = false
 
-// function pause(ms){return new Promise(r=>setTimeout(r,ms||100))}
-
 setInterval(async () => {
   if (ready && list.length >= 1) {
     ready = false
@@ -20,7 +18,7 @@ setInterval(async () => {
       })
     } catch {}
     await page.goto(`https://translate.google.com/?sl=${a}&tl=${b}&text=${t}&op=translate`)
-    // await pause()
+
     t = await gettr()
     l.forEach(a => t = t.replace(a[0], a[1]))
     ready = true
