@@ -12,8 +12,10 @@ client.on('message', async (msg) => {
   if (sleeptime) return
   if (msg.channel.guild.id !== process.env.GUILDID) return
   if (!msg.content.startsWith(process.env.PREFIX)) return
-  msg.channel.startTyping()
+
   sleep()
+
+  msg.channel.startTyping()
   const translated = await translate(msg.content.slice(3), 'auto', 'en')
   msg.channel.stopTyping()
 
