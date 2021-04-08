@@ -8,8 +8,10 @@ client.once('ready', () => {
   console.log(`successfully logged in as ${client.user.tag}`)
 })
 
+let sleepTime
+
 client.on('message', async (msg) => {
-  if (sleeptime) return
+  if (sleepTime) return
   if (msg.channel.guild.id !== process.env.GUILDID) return
   if (!msg.content.startsWith(process.env.PREFIX)) return
 
@@ -22,9 +24,8 @@ client.on('message', async (msg) => {
   msg.channel.send(translated)
 })
 function sleep (time) {
-  sleeptime = true
-  setTimeout(() => { sleeptime = false }, time)
+  sleepTime = true
+  setTimeout(() => { sleepTime = false }, time)
 }
-let sleeptime
 
 client.login(process.env.TOKEN)
