@@ -13,12 +13,14 @@ let sleepTime
 client.on('message', async (msg) => {
   if (sleepTime) return
   if (msg.channel.guild.id !== process.env.GUILDID) return
-  if (!msg.content.startsWith(process.env.PREFIX)) return
+
+  const cmd = msg.content.match(/^\/t (?<langFrom>\w+) (?<langTo>\w+) (?<content>.+)$/) ? msg.content.match(/^\/t (?<langFrom>\w+) (?<langTo>\w+) (?<content>.+)$/) : null
+  if (!cmd) return
 
   sleep()
 
   msg.channel.startTyping()
-  const translated = await translate(msg.content.slice(3), 'auto', 'en')
+  const translated = await translate(cmd.groups.content, cmd.groups.langFrom, cmd.groups.langTo)
   msg.channel.stopTyping()
 
   msg.channel.send(translated)
