@@ -14,7 +14,7 @@ A plugin and play discord translate bot using google translate and discordjs.
 
 In guild chat saying /t (landFrom) (langTo) (*content*) will convert what ever the content is into English
 landFrom and langTo should be abbreviations for example English = en, russian = ru 
-This uses the Google translate api and henceforth is limited to only 500000 characters per day
+This uses the Google translate api and therefore is limited to only 500000 characters per day
 
 ##
 *Warning* do not close chromium after running the app, if done soo this will cause the app to close
