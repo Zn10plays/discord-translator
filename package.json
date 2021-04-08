@@ -9,7 +9,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node ./src/index.js"
+    "start":"node ./src/index.js"
   },
   "author": "",
   "license": "ISC",
